@@ -8,17 +8,22 @@ const Navbar = () => {
   
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/partidas', label: 'Partidas', icon: Calendar },
+    { path: '/partidas', label: 'Competições', icon: Calendar },
     { path: '/minhas-apostas', label: 'Minhas Apostas', icon: Trophy },
     { path: '/perfil', label: 'Perfil', icon: User },
   ];
 
   return (
-    <nav className="bg-[#0A3D62] text-white shadow-lg fixed top-0 w-full z-50">
+    <nav className="bg-ocean-blue text-white shadow-lg fixed top-0 w-full z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-xl font-bold">
-            ⚽ FutebolBets
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/299dedfd-4ee3-42fd-8366-1af55b8e40b5.png" 
+              alt="Bob Esponja Bet" 
+              className="h-10 w-auto"
+            />
+            <span className="text-xl font-bold text-sponge-yellow">Bob Esponja Bet</span>
           </Link>
           
           <div className="hidden md:flex space-x-8">
@@ -30,7 +35,7 @@ const Navbar = () => {
                   to={item.path}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors ${
                     location.pathname === item.path
-                      ? 'bg-white/20 text-white'
+                      ? 'bg-sponge-yellow text-ocean-blue'
                       : 'hover:bg-white/10'
                   }`}
                 >
@@ -45,7 +50,7 @@ const Navbar = () => {
             <span className="hidden md:block text-sm">Saldo: R$ 250,00</span>
             <Link
               to="/login"
-              className="bg-white text-[#0A3D62] px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+              className="bg-sponge-yellow text-ocean-blue px-4 py-2 rounded-lg font-medium hover:bg-yellow-300 transition-colors"
             >
               Entrar
             </Link>
@@ -54,7 +59,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden bg-[#0A3D62] border-t border-white/20">
+      <div className="md:hidden bg-ocean-blue border-t border-white/20">
         <div className="flex justify-around py-2">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -64,7 +69,7 @@ const Navbar = () => {
                 to={item.path}
                 className={`flex flex-col items-center py-2 px-3 rounded-lg ${
                   location.pathname === item.path
-                    ? 'text-white'
+                    ? 'text-sponge-yellow'
                     : 'text-white/70'
                 }`}
               >

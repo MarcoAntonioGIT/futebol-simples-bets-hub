@@ -11,26 +11,26 @@ const Home = () => {
     bet: any;
   }>({ isOpen: false, bet: null });
 
-  // Mock data for matches
+  // Mock data for Bob Esponja competitions
   const liveMatches = [
     {
       id: '1',
-      homeTeam: 'Flamengo',
-      awayTeam: 'Palmeiras',
+      participant1: 'Bob Esponja',
+      participant2: 'Patrick',
       date: 'Hoje',
       time: '16:30',
-      championship: 'Campeonato Brasileiro',
-      odds: { home: 2.10, draw: 3.20, away: 3.40 },
+      competition: 'Corrida de Cavalo Marinho',
+      odds: { participant1: 2.10, draw: 3.20, participant2: 3.40 },
       isLive: true
     },
     {
       id: '2',
-      homeTeam: 'Santos',
-      awayTeam: 'Corinthians',
+      participant1: 'Lula Molusco',
+      participant2: 'Sandy',
       date: 'Hoje',
       time: '18:00',
-      championship: 'Campeonato Brasileiro',
-      odds: { home: 2.80, draw: 3.10, away: 2.50 },
+      competition: 'Quem Caça Mais Águas Vivas',
+      odds: { participant1: 2.80, draw: 3.10, participant2: 2.50 },
       isLive: true
     }
   ];
@@ -38,21 +38,21 @@ const Home = () => {
   const upcomingMatches = [
     {
       id: '3',
-      homeTeam: 'São Paulo',
-      awayTeam: 'Grêmio',
+      participant1: 'Sr. Siriguejo',
+      participant2: 'Plankton',
       date: 'Amanhã',
       time: '16:00',
-      championship: 'Copa do Brasil',
-      odds: { home: 1.90, draw: 3.40, away: 4.20 }
+      competition: 'Quem Come Mais Hambúrgueres de Siri',
+      odds: { participant1: 1.90, draw: 3.40, participant2: 4.20 }
     },
     {
       id: '4',
-      homeTeam: 'Atlético-MG',
-      awayTeam: 'Internacional',
+      participant1: 'Bob Esponja',
+      participant2: 'Lula Molusco',
       date: 'Domingo',
       time: '20:00',
-      championship: 'Campeonato Brasileiro',
-      odds: { home: 2.60, draw: 3.00, away: 2.90 }
+      competition: 'Corrida de Cavalo Marinho',
+      odds: { participant1: 2.60, draw: 3.00, participant2: 2.90 }
     }
   ];
 
@@ -63,8 +63,8 @@ const Home = () => {
         isOpen: true,
         bet: {
           matchId,
-          homeTeam: match.homeTeam,
-          awayTeam: match.awayTeam,
+          participant1: match.participant1,
+          participant2: match.participant2,
           betType,
           odds
         }
@@ -75,32 +75,38 @@ const Home = () => {
   const handleConfirmBet = (amount: number) => {
     toast({
       title: "Aposta confirmada!",
-      description: `Sua aposta de R$ ${amount.toFixed(2)} foi registrada com sucesso.`,
+      description: `Sua aposta de R$ ${amount.toFixed(2)} foi registrada com sucesso na Fenda do Biquíni!`,
     });
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
+    <div className="min-h-screen bg-gradient-to-b from-cyan-100 to-blue-200 pt-16">
       {/* Hero Banner */}
-      <div className="bg-gradient-to-r from-[#0A3D62] to-[#1e5f8b] text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Aposte nos Próximos Jogos
+      <div className="bg-gradient-to-r from-ocean-blue to-blue-700 text-white py-16 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="w-full h-full bg-repeat" style={{
+            backgroundImage: "url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"20\" cy=\"20\" r=\"3\" fill=\"white\" opacity=\"0.3\"/><circle cx=\"80\" cy=\"40\" r=\"2\" fill=\"white\" opacity=\"0.2\"/><circle cx=\"40\" cy=\"80\" r=\"4\" fill=\"white\" opacity=\"0.1\"/></svg>')"
+          }}>
+          </div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-sponge-yellow">
+            Bem-vindos à Fenda do Biquíni!
           </h1>
           <p className="text-xl mb-8 text-white/90">
-            As melhores odds do futebol brasileiro e internacional
+            As melhores apostas submarinas com os personagens mais queridos!
           </p>
           <div className="flex justify-center space-x-8 text-center">
-            <div>
-              <div className="text-2xl font-bold">1000+</div>
-              <div className="text-sm text-white/80">Jogos por mês</div>
+            <div className="bg-sponge-yellow/20 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-sponge-yellow">50+</div>
+              <div className="text-sm text-white/80">Competições por mês</div>
             </div>
-            <div>
-              <div className="text-2xl font-bold">98%</div>
+            <div className="bg-patrick-pink/20 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-sponge-yellow">98%</div>
               <div className="text-sm text-white/80">Pagamentos rápidos</div>
             </div>
-            <div>
-              <div className="text-2xl font-bold">24/7</div>
+            <div className="bg-sponge-yellow/20 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-sponge-yellow">24/7</div>
               <div className="text-sm text-white/80">Suporte online</div>
             </div>
           </div>
@@ -111,9 +117,9 @@ const Home = () => {
         {/* Live Matches Section */}
         <section className="mb-12">
           <div className="flex items-center mb-6">
-            <div className="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
-            <h2 className="text-2xl font-bold text-gray-800">Jogos ao Vivo</h2>
-            <TrendingUp className="ml-2 text-red-500" size={24} />
+            <div className="w-3 h-3 bg-patrick-pink rounded-full mr-3 animate-pulse"></div>
+            <h2 className="text-2xl font-bold text-ocean-blue">Competições ao Vivo</h2>
+            <TrendingUp className="ml-2 text-patrick-pink" size={24} />
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -130,9 +136,9 @@ const Home = () => {
         {/* Upcoming Matches Section */}
         <section>
           <div className="flex items-center mb-6">
-            <Clock className="mr-3 text-[#0A3D62]" size={24} />
-            <h2 className="text-2xl font-bold text-gray-800">Próximos Jogos</h2>
-            <Star className="ml-2 text-yellow-500" size={24} />
+            <Clock className="mr-3 text-ocean-blue" size={24} />
+            <h2 className="text-2xl font-bold text-ocean-blue">Próximas Competições</h2>
+            <Star className="ml-2 text-sponge-yellow" size={24} />
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -147,23 +153,23 @@ const Home = () => {
         </section>
 
         {/* Quick Stats */}
-        <section className="mt-12 bg-white rounded-lg p-8 shadow-md">
-          <h3 className="text-xl font-bold mb-6 text-center">Estatísticas de Hoje</h3>
+        <section className="mt-12 bg-white rounded-lg p-8 shadow-md border-4 border-sponge-yellow">
+          <h3 className="text-xl font-bold mb-6 text-center text-ocean-blue">Estatísticas da Fenda do Biquíni</h3>
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-[#0A3D62]">12</div>
-              <div className="text-gray-600">Jogos hoje</div>
+              <div className="text-3xl font-bold text-ocean-blue">8</div>
+              <div className="text-gray-600">Competições hoje</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600">847</div>
+              <div className="text-3xl font-bold text-green-600">425</div>
               <div className="text-gray-600">Apostas ativas</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-orange-600">R$ 45.2k</div>
+              <div className="text-3xl font-bold text-patrick-pink">R$ 15.8k</div>
               <div className="text-gray-600">Total em apostas</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-600">3.2x</div>
+              <div className="text-3xl font-bold text-brown-pants">4.2x</div>
               <div className="text-gray-600">Maior odd do dia</div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,6 +20,14 @@ export default {
 		},
 		extend: {
 			colors: {
+				// Bob Esponja color palette
+				'sponge-yellow': '#f1c232',
+				'patrick-pink': '#f44336',
+				'brown-pants': '#744700',
+				'ocean-blue': '#1e40af',
+				'bubble-white': '#ffffff',
+				'kelp-black': '#000000',
+				
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

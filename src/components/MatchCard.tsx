@@ -1,19 +1,19 @@
 
 import React from 'react';
-import { Clock, TrendingUp } from 'lucide-react';
+import { Clock, Star } from 'lucide-react';
 
 interface MatchCardProps {
   match: {
     id: string;
-    homeTeam: string;
-    awayTeam: string;
+    participant1: string;
+    participant2: string;
     date: string;
     time: string;
-    championship: string;
+    competition: string;
     odds: {
-      home: number;
+      participant1: number;
       draw: number;
-      away: number;
+      participant2: number;
     };
     isLive?: boolean;
   };
@@ -22,12 +22,12 @@ interface MatchCardProps {
 
 const MatchCard: React.FC<MatchCardProps> = ({ match, onBet }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+    <div className="bg-white rounded-lg shadow-md p-6 border-2 border-sponge-yellow hover:shadow-lg transition-shadow">
       <div className="flex items-center justify-between mb-4">
-        <span className="text-sm text-gray-600">{match.championship}</span>
+        <span className="text-sm text-gray-600 font-medium">{match.competition}</span>
         {match.isLive && (
-          <div className="flex items-center text-red-500 text-sm font-medium">
-            <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
+          <div className="flex items-center text-patrick-pink text-sm font-medium">
+            <div className="w-2 h-2 bg-patrick-pink rounded-full mr-2 animate-pulse"></div>
             AO VIVO
           </div>
         )}
@@ -36,13 +36,13 @@ const MatchCard: React.FC<MatchCardProps> = ({ match, onBet }) => {
       <div className="text-center mb-4">
         <div className="flex items-center justify-between">
           <div className="text-center flex-1">
-            <h3 className="font-semibold text-lg">{match.homeTeam}</h3>
+            <h3 className="font-semibold text-lg text-ocean-blue">{match.participant1}</h3>
           </div>
           <div className="mx-4 text-gray-400">
-            <span className="text-sm">VS</span>
+            <Star className="w-6 h-6 text-sponge-yellow" />
           </div>
           <div className="text-center flex-1">
-            <h3 className="font-semibold text-lg">{match.awayTeam}</h3>
+            <h3 className="font-semibold text-lg text-ocean-blue">{match.participant2}</h3>
           </div>
         </div>
         
@@ -54,27 +54,27 @@ const MatchCard: React.FC<MatchCardProps> = ({ match, onBet }) => {
       
       <div className="grid grid-cols-3 gap-2 mb-4">
         <button
-          onClick={() => onBet(match.id, 'home', match.odds.home)}
-          className="bg-gray-100 hover:bg-[#0A3D62] hover:text-white p-3 rounded-lg text-center transition-colors group"
+          onClick={() => onBet(match.id, 'participant1', match.odds.participant1)}
+          className="bg-gray-100 hover:bg-ocean-blue hover:text-white p-3 rounded-lg text-center transition-colors group border-2 border-transparent hover:border-sponge-yellow"
         >
-          <div className="text-xs text-gray-600 group-hover:text-white/80">Casa</div>
-          <div className="font-bold">{match.odds.home.toFixed(2)}</div>
+          <div className="text-xs text-gray-600 group-hover:text-white/80">{match.participant1}</div>
+          <div className="font-bold">{match.odds.participant1.toFixed(2)}</div>
         </button>
         
         <button
           onClick={() => onBet(match.id, 'draw', match.odds.draw)}
-          className="bg-gray-100 hover:bg-[#0A3D62] hover:text-white p-3 rounded-lg text-center transition-colors group"
+          className="bg-gray-100 hover:bg-patrick-pink hover:text-white p-3 rounded-lg text-center transition-colors group border-2 border-transparent hover:border-sponge-yellow"
         >
           <div className="text-xs text-gray-600 group-hover:text-white/80">Empate</div>
           <div className="font-bold">{match.odds.draw.toFixed(2)}</div>
         </button>
         
         <button
-          onClick={() => onBet(match.id, 'away', match.odds.away)}
-          className="bg-gray-100 hover:bg-[#0A3D62] hover:text-white p-3 rounded-lg text-center transition-colors group"
+          onClick={() => onBet(match.id, 'participant2', match.odds.participant2)}
+          className="bg-gray-100 hover:bg-ocean-blue hover:text-white p-3 rounded-lg text-center transition-colors group border-2 border-transparent hover:border-sponge-yellow"
         >
-          <div className="text-xs text-gray-600 group-hover:text-white/80">Fora</div>
-          <div className="font-bold">{match.odds.away.toFixed(2)}</div>
+          <div className="text-xs text-gray-600 group-hover:text-white/80">{match.participant2}</div>
+          <div className="font-bold">{match.odds.participant2.toFixed(2)}</div>
         </button>
       </div>
     </div>
