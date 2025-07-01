@@ -20,7 +20,7 @@ const Login = () => {
     if (isLogin) {
       toast({
         title: "Login realizado!",
-        description: "Bem-vindo de volta à FutebolBets!",
+        description: "Bem-vindo de volta ao Bet Esponja!",
       });
     } else {
       if (formData.password !== formData.confirmPassword) {
@@ -34,7 +34,7 @@ const Login = () => {
       
       toast({
         title: "Conta criada!",
-        description: "Sua conta foi criada com sucesso. Bem-vindo à FutebolBets!",
+        description: "Sua conta foi criada com sucesso. Bem-vindo ao Bet Esponja!",
       });
     }
   };
@@ -52,14 +52,14 @@ const Login = () => {
         <div className="max-w-md w-full">
           {/* Logo */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-[#0A3D62] mb-2">⚽ FutebolBets</h1>
+            <h1 className="text-3xl font-bold text-primary-blue mb-2">🧽 Bet Esponja</h1>
             <p className="text-gray-600">
               {isLogin ? 'Entre na sua conta' : 'Crie sua conta'}
             </p>
           </div>
 
           {/* Form */}
-          <div className="bg-white rounded-lg shadow-md p-8">
+          <div className="bg-neutral-white rounded-lg shadow-md p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {!isLogin && (
                 <div>
@@ -71,7 +71,7 @@ const Login = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A3D62] focus:border-transparent"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent"
                     placeholder="Digite seu nome completo"
                     required={!isLogin}
                   />
@@ -89,7 +89,7 @@ const Login = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A3D62] focus:border-transparent"
+                    className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent"
                     placeholder="Digite seu e-mail"
                     required
                   />
@@ -107,7 +107,7 @@ const Login = () => {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A3D62] focus:border-transparent"
+                    className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent"
                     placeholder="Digite sua senha"
                     required
                   />
@@ -133,7 +133,7 @@ const Login = () => {
                       name="confirmPassword"
                       value={formData.confirmPassword}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A3D62] focus:border-transparent"
+                      className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent"
                       placeholder="Confirme sua senha"
                       required={!isLogin}
                     />
@@ -147,7 +147,7 @@ const Login = () => {
                     <input type="checkbox" className="mr-2" />
                     <span className="text-sm text-gray-600">Lembrar de mim</span>
                   </label>
-                  <Link to="/esqueci-senha" className="text-sm text-[#0A3D62] hover:underline">
+                  <Link to="/esqueci-senha" className="text-sm text-primary-blue hover:underline">
                     Esqueci minha senha
                   </Link>
                 </div>
@@ -155,7 +155,7 @@ const Login = () => {
 
               <button
                 type="submit"
-                className="w-full bg-[#0A3D62] text-white py-3 rounded-lg font-semibold hover:bg-[#0A3D62]/90 transition-colors"
+                className="w-full bg-primary-blue text-neutral-white py-3 rounded-lg font-semibold hover:bg-primary-blue/90 transition-colors"
               >
                 {isLogin ? 'Entrar' : 'Criar conta'}
               </button>
@@ -167,7 +167,7 @@ const Login = () => {
                 {isLogin ? 'Não tem uma conta?' : 'Já tem uma conta?'}
                 <button
                   onClick={() => setIsLogin(!isLogin)}
-                  className="ml-1 text-[#0A3D62] font-semibold hover:underline"
+                  className="ml-1 text-primary-blue font-semibold hover:underline"
                 >
                   {isLogin ? 'Cadastre-se' : 'Faça login'}
                 </button>
@@ -178,38 +178,15 @@ const Login = () => {
             {!isLogin && (
               <div className="mt-4 text-xs text-gray-500 text-center">
                 Ao criar uma conta, você concorda com nossos{' '}
-                <Link to="/termos" className="text-[#0A3D62] hover:underline">
+                <Link to="/termos" className="text-primary-blue hover:underline">
                   Termos de Uso
                 </Link>{' '}
                 e{' '}
-                <Link to="/privacidade" className="text-[#0A3D62] hover:underline">
+                <Link to="/privacidade" className="text-primary-blue hover:underline">
                   Política de Privacidade
                 </Link>
               </div>
             )}
-          </div>
-
-          {/* Social login */}
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-gray-50 text-gray-500">Ou continue com</span>
-              </div>
-            </div>
-
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                <span className="mr-2">📱</span>
-                Google
-              </button>
-              <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                <span className="mr-2">📘</span>
-                Facebook
-              </button>
-            </div>
           </div>
         </div>
       </div>
