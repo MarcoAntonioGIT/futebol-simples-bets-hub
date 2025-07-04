@@ -82,18 +82,12 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-cyan-100 to-blue-200 pt-16">
       {/* Hero Banner */}
-      <div className="bg-gradient-to-r from-ocean-blue to-blue-700 text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full bg-repeat" style={{
-            backgroundImage: "url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"20\" cy=\"20\" r=\"3\" fill=\"white\" opacity=\"0.3\"/><circle cx=\"80\" cy=\"40\" r=\"2\" fill=\"white\" opacity=\"0.2\"/><circle cx=\"40\" cy=\"80\" r=\"4\" fill=\"white\" opacity=\"0.1\"/></svg>')"
-          }}>
-          </div>
-        </div>
+      <div className="bg-neutral-white py-16 relative overflow-hidden border-b-4 border-accent-yellow">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-sponge-yellow">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-accent-yellow">
             Bem-vindos à Fenda do Biquíni!
           </h1>
-          <p className="text-xl mb-8 text-white/90">
+          <p className="text-xl mb-8 text-primary-blue">
             As melhores apostas submarinas com os personagens mais queridos!
           </p>
           <div className="flex justify-center space-x-8 text-center">
